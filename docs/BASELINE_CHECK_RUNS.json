@@ -1,0 +1,38 @@
+{
+ "build": "JY-S005-P001/run-0001 (0.1.1-partial, maintenance A006)",
+ "environment": {
+  "executor": "claude cowork session 01SaQzDRzMFXvRabmCC6JDJD",
+  "python": "3.11.15",
+  "platform": "Linux-6.18.44-fc-v24-x86_64-with-glibc2.39",
+  "location": "Anthropic cloud container (Linux)"
+ },
+ "checks": [
+  {
+   "id": "baseline-unit-tests",
+   "command": "python3 -m unittest discover -s tests -t . (build-0001 baseline)",
+   "result": "PASS 12/12",
+   "captured_at": "2026-09-14"
+  },
+  {
+   "id": "defect-probes",
+   "command": "probe.py (error-contract, NaN/strict-canonicalization, aliasing)",
+   "result": "3 findings reproduced on baseline; all fixed and re-probed clean on candidate",
+   "captured_at": "2026-09-14"
+  },
+  {
+   "id": "candidate-unit-tests",
+   "command": "python3 -m unittest discover -s tests -t . (final bytes, 0.1.1-partial)",
+   "result": "PASS 22/22",
+   "captured_at": "2026-09-14"
+  }
+ ],
+ "unrun_checks": [
+  "Windows-native launch UNRUN - no Windows runtime this session",
+  "independent review NOT PERFORMED",
+  "live data connectors",
+  "gate suite",
+  "human risk-acceptance workflow",
+  "adversarial/bypass suites"
+ ],
+ "note": "Evidence current for these inputs on this host only."
+}
